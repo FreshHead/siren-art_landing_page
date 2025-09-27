@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Arial", sans-serif;
   background: #000;
@@ -62,10 +66,18 @@ main {
   margin-top: 80px;
 }
 
+/* Full-height sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero {
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .hero-content h1 {
@@ -92,7 +104,7 @@ main {
 .services {
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .service-item {
@@ -117,7 +129,7 @@ main {
 .gallery {
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .gallery-item {
@@ -141,10 +153,9 @@ main {
 .why-choose {
   padding: 60px 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   background: #111;
   border-radius: 20px;
-  margin-bottom: 40px;
 }
 
 .why-choose-wrapper {
@@ -184,7 +195,7 @@ main {
 .contact-section {
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .contact-content {
@@ -311,4 +322,3 @@ main {
     padding: 0 15px;
   }
 }
-
