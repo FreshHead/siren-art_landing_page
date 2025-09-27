@@ -18,12 +18,31 @@ body {
 section {
   width: 100%;
   max-width: 1200px;
+  padding: 40px 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.benefits-image {
+  width: auto;
 }
 
 ul,
 p {
   font-size: 32px;
   color: #ccc;
+}
+
+.rounded {
+  border-radius: 20px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .navbar {
@@ -82,12 +101,6 @@ section {
   align-items: center;
 }
 
-.hero {
-  padding: 40px 20px;
-  max-width: 1200px;
-  width: 100%;
-}
-
 .hero-content h1 {
   font-size: 48px;
   font-weight: bold;
@@ -97,22 +110,7 @@ section {
 }
 
 .hero-image {
-  width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
   margin-bottom: 40px;
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.services {
-  padding: 40px 20px;
-  max-width: 1200px;
-  width: 100%;
 }
 
 .service-item {
@@ -123,25 +121,8 @@ section {
   margin-bottom: 40px;
 }
 
-.service-image {
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.service-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .service-text {
   text-align: center;
-}
-
-.gallery {
-  padding: 40px 20px;
-  max-width: 1200px;
-  width: 100%;
 }
 
 .gallery-item {
@@ -149,9 +130,6 @@ section {
 }
 
 .gallery-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
   margin-bottom: 20px;
 }
 
@@ -162,22 +140,23 @@ section {
   text-align: center;
 }
 
-.why-choose {
+#advantages {
+  padding: 20px 0;
+}
+
+.card {
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
-  max-width: 1200px;
-  width: 100%;
   background: #111;
-  border-radius: 20px;
+  padding: 32px;
 }
 
 .why-choose-wrapper {
   display: flex;
-  gap: 16px;
+  gap: 32px;
 }
 
-.why-choose h2 {
+card h2 {
   font-size: 32px;
   margin-bottom: 30px;
   text-align: center;
@@ -203,12 +182,6 @@ section {
   font-size: 24px;
   margin-right: 15px;
   margin-top: -2px;
-}
-
-.contact-section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  width: 100%;
 }
 
 .contact-content {
@@ -246,17 +219,6 @@ section {
   background: #45a049;
 }
 
-.contact-image {
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.contact-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .whatsapp-button {
   position: fixed;
   bottom: 30px;
@@ -265,12 +227,11 @@ section {
 }
 
 .whatsapp-button a {
-  display: block;
+  display: flex;
   width: 60px;
   height: 60px;
   background: #25d366;
   border-radius: 50%;
-  display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s;
@@ -300,7 +261,7 @@ section {
     gap: 20px;
   }
 
-  .why-choose h2 {
+  card h2 {
     font-size: 24px;
   }
 
@@ -315,14 +276,7 @@ section {
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 20px 15px;
-  }
-
-  .services,
-  .gallery,
-  .why-choose,
-  .contact-section {
+  section {
     padding: 20px 15px;
   }
 
