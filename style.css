@@ -27,7 +27,7 @@ img {
   display: block;
 }
 
-.benefits-image {
+.advantages-image {
   width: auto;
 }
 
@@ -131,12 +131,103 @@ section {
   color: #fff;
 }
 
-.gallery-item {
-  margin-bottom: 40px;
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.gallery-item img {
-  margin-bottom: 20px;
+.gallery-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto 30px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 685px;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+  left: 20px;
+}
+
+.carousel-next {
+  right: 20px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: #fff;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .gallery-text {
@@ -144,6 +235,8 @@ section {
   line-height: 1.6;
   color: #fff;
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 #advantages {
@@ -169,13 +262,13 @@ section {
   color: #fff;
 }
 
-.benefits-list {
+.advantages-list {
   display: flex;
   flex-direction: column;
   max-width: 800px;
 }
 
-.benefits-list li {
+.advantages-list li {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
@@ -308,7 +401,7 @@ section {
     gap: 20px;
   }
 
-  .benefits-image {
+  .advantages-image {
     display: none;
   }
 
@@ -316,7 +409,7 @@ section {
     font-size: 24px;
   }
 
-  .benefits-list li {
+  .advantages-list li {
     font-size: 18px;
   }
 
@@ -331,6 +424,25 @@ section {
 
   .gallery-text {
     font-size: 20px;
+  }
+
+  .gallery-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .carousel-prev {
+    left: 10px;
+  }
+
+  .carousel-next {
+    right: 10px;
   }
 
   .service-text {
@@ -369,7 +481,7 @@ section {
     font-size: 20px;
   }
 
-  .benefits-list li {
+  .advantages-list li {
     font-size: 16px;
   }
 
@@ -388,6 +500,30 @@ section {
 
   .gallery-text {
     font-size: 16px;
+  }
+
+  .gallery-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .carousel-prev {
+    left: 5px;
+  }
+
+  .carousel-next {
+    right: 5px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
   }
 
   .service-text {

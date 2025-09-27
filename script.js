@@ -166,5 +166,125 @@ document.addEventListener("DOMContentLoaded", function () {
       currentSectionIndex = getCurrentSectionIndex();
     }
   });
+
+  // Carousel functionality
+  function initCarousel() {
+    const carousel = document.querySelector('.carousel-wrapper');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    if (!carousel || slides.length === 0) return;
+
+    let currentSlide = 0;
+    let isCarouselTransitioning = false;
+
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      if (isCarouselTransitioning) return;
+      isCarouselTransitioning = true;
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel();
+      setTimeout(() => {
+        isCarouselTransitioning = false;
+      }, 100);
+    }
+
+    function prevSlide() {
+      if (isCarouselTransitioning) return;
+      isCarouselTransitioning = true;
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateCarousel();
+      setTimeout(() => {
+        isCarouselTransitioning = false;
+      }, 100);
+    }
+
+    function goToSlide(index) {
+      if (isCarouselTransitioning || index === currentSlide) return;
+      isCarouselTransitioning = true;
+      currentSlide = index;
+      updateCarousel();
+      setTimeout(() => {
+        isCarouselTransitioning = false;
+      }, 100);
+    }
+
+    // Event listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', nextSlide);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', prevSlide);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (document.querySelector('#gallery:hover')) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextSlide();
+        }
+      }
+    });
+
+    // Touch support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const swipeDistance = touchStartX - touchEndX;
+
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+
+    // Auto-play (optional - uncomment to enable)
+    // setInterval(() => {
+    //   if (!document.querySelector('#gallery:hover')) {
+    //     nextSlide();
+    //   }
+    // }, 5000);
+
+    updateCarousel();
+  }
+
+  initCarousel();
 });
 
