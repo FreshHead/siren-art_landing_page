@@ -254,6 +254,7 @@ section {
 
   .hero-content h1 {
     font-size: 32px;
+    padding: 0 10px;
   }
 
   .service-item,
@@ -262,12 +263,40 @@ section {
     gap: 20px;
   }
 
-  card h2 {
+  .why-choose-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .benefits-image {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .card h2 {
     font-size: 24px;
   }
 
   .benefits-list li {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .contact-text p {
+    font-size: 20px;
+  }
+
+  .contact-btn {
+    font-size: 20px;
+    padding: 12px 25px;
+  }
+
+  .gallery-text {
+    font-size: 20px;
+  }
+
+  .service-text {
+    font-size: 24px;
   }
 
   .whatsapp-button {
@@ -283,9 +312,66 @@ section {
 
   .hero-content h1 {
     font-size: 24px;
+    padding: 0 5px;
   }
 
   .nav-container {
     padding: 0 15px;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .benefits-list li {
+    font-size: 16px;
+  }
+
+  .contact-text h2 {
+    font-size: 24px;
+  }
+
+  .contact-text p {
+    font-size: 16px;
+  }
+
+  .contact-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .gallery-text {
+    font-size: 16px;
+  }
+
+  .service-text {
+    font-size: 18px;
+  }
+
+  ul, p {
+    font-size: 16px;
+  }
+
+  .whatsapp-button {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-button a {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-button img {
+    width: 30px;
+    height: 30px;
   }
 }
