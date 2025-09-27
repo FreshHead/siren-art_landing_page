@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentSectionIndex = 0;
   let isScrolling = false;
   let scrollTimeout;
+  let touchStartY = 0;
+  let touchEndY = 0;
 
   function getCurrentSectionIndex() {
     const scrollPosition = window.scrollY + window.innerHeight / 2;
@@ -105,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Desktop wheel scrolling
   window.addEventListener('wheel', function(e) {
     if (isScrolling) return;
     
@@ -127,6 +130,35 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, 50);
   }, { passive: false });
+
+  // Mobile touch scrolling
+  window.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function(e) {
+    if (isScrolling) return;
+    
+    touchEndY = e.changedTouches[0].clientY;
+    const touchDiff = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    
+    if (Math.abs(touchDiff) > minSwipeDistance) {
+      currentSectionIndex = getCurrentSectionIndex();
+      
+      if (touchDiff > 0) {
+        // Swiped up (scroll down)
+        if (currentSectionIndex < sections.length - 1) {
+          scrollToSection(currentSectionIndex + 1);
+        }
+      } else {
+        // Swiped down (scroll up)
+        if (currentSectionIndex > 0) {
+          scrollToSection(currentSectionIndex - 1);
+        }
+      }
+    }
+  }, { passive: true });
 
   // Update current section on manual scroll
   window.addEventListener('scroll', function() {
