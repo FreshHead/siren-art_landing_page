@@ -11,13 +11,14 @@ html {
 body {
   font-family: "Arial", sans-serif;
   background: #000;
-  color: #fff;
   line-height: 1.6;
+  color: #fff;
 }
 
+ul,
 p {
   font-size: 32px;
-  color: #fff;
+  color: #ccc;
 }
 
 .navbar {
@@ -222,7 +223,6 @@ section {
   font-size: 24px;
   line-height: 1.6;
   margin-bottom: 15px;
-  color: #ccc;
 }
 
 .contact-btn {
