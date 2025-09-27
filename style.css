@@ -116,13 +116,14 @@ section {
 .service-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 32px;
   align-items: center;
   margin-bottom: 40px;
 }
 
 .service-text {
   text-align: center;
+  color: #fff;
 }
 
 .gallery-item {
@@ -156,7 +157,7 @@ section {
   gap: 32px;
 }
 
-card h2 {
+.card h2 {
   font-size: 32px;
   margin-bottom: 30px;
   text-align: center;
