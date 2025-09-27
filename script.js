@@ -69,5 +69,70 @@ document.addEventListener("DOMContentLoaded", function () {
   images.forEach((img) => {
     imageObserver.observe(img);
   });
+
+  // Section-by-section scrolling
+  const sections = document.querySelectorAll('section');
+  let currentSectionIndex = 0;
+  let isScrolling = false;
+  let scrollTimeout;
+
+  function getCurrentSectionIndex() {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        return i;
+      }
+    }
+    return 0;
+  }
+
+  function scrollToSection(index) {
+    if (index >= 0 && index < sections.length) {
+      isScrolling = true;
+      sections[index].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      setTimeout(() => {
+        isScrolling = false;
+      }, 1000);
+    }
+  }
+
+  window.addEventListener('wheel', function(e) {
+    if (isScrolling) return;
+    
+    e.preventDefault();
+    
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      currentSectionIndex = getCurrentSectionIndex();
+      
+      if (e.deltaY > 0) {
+        // Scrolling down
+        if (currentSectionIndex < sections.length - 1) {
+          scrollToSection(currentSectionIndex + 1);
+        }
+      } else {
+        // Scrolling up
+        if (currentSectionIndex > 0) {
+          scrollToSection(currentSectionIndex - 1);
+        }
+      }
+    }, 50);
+  }, { passive: false });
+
+  // Update current section on manual scroll
+  window.addEventListener('scroll', function() {
+    if (!isScrolling) {
+      currentSectionIndex = getCurrentSectionIndex();
+    }
+  });
 });
 
